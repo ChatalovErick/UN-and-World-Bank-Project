@@ -1,0 +1,48 @@
+table Dim_Date
+	lineageTag: b09aeb22-5afe-4587-962c-186c223c6279
+	sourceLineageTag: [dbo].[Dim_Date]
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b22266e-925e-4f84-9fc7-7c18c540752f
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Decade
+		dataType: string
+		lineageTag: cf7500ec-b1fe-459d-b0f4-4354cdf3c35c
+		sourceLineageTag: Decade
+		summarizeBy: none
+		sourceColumn: Decade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Economic_Context
+		dataType: string
+		lineageTag: afc94e07-4a71-4a5c-a681-18c47c04b9d8
+		sourceLineageTag: Economic_Context
+		summarizeBy: none
+		sourceColumn: Economic_Context
+
+		annotation SummarizationSetBy = Automatic
+
+	column Global_Goals
+		dataType: string
+		lineageTag: 0f8986bb-fd82-4538-827e-d5512532cfdd
+		sourceLineageTag: Global_Goals
+		summarizeBy: none
+		sourceColumn: Global_Goals
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Date = entity
+		mode: directLake
+		source
+			entityName: Dim_Date
+			schemaName: dbo
+			expressionSource: 'DirectLake - Silver_LakeHouse'
+

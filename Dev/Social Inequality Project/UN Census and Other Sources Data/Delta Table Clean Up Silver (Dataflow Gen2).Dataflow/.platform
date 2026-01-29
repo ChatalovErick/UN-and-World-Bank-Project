@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Delta Tables Clean Up Bronze to Silver (Dataflow Gen2)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dd9197ee-2d37-b7b6-468d-ba751163c7f9"
+  }
+}

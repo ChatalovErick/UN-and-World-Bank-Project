@@ -1,0 +1,84 @@
+table Income_Share
+	lineageTag: cb6458f4-d66a-4d96-bb64-fc93bd5dc1a3
+	sourceLineageTag: [dbo].[Income_Share]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: fa738428-72a4-4c76-9003-ba4572c1389c
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country_Code_Iso3
+		dataType: string
+		lineageTag: df76495c-bf8c-4ca3-809d-e627988eebd8
+		sourceLineageTag: Country_Code_Iso3
+		summarizeBy: none
+		sourceColumn: Country_Code_Iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 02ffd595-78b9-4d6f-950c-2f0f6b2431d3
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Share_Top_10_pct
+		dataType: double
+		lineageTag: e96c2dc3-a752-4659-9f60-38c16d5a7413
+		sourceLineageTag: Share_Top_10_pct
+		summarizeBy: sum
+		sourceColumn: Share_Top_10_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Share_Top_1_pct
+		dataType: double
+		lineageTag: bff0b940-efdf-47be-b7d4-3563039d22c2
+		sourceLineageTag: Share_Top_1_pct
+		summarizeBy: sum
+		sourceColumn: Share_Top_1_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Share_Middle_40_pct
+		dataType: double
+		lineageTag: 16bc6d61-71a6-450b-a189-df75c575d144
+		sourceLineageTag: Share_Middle_40_pct
+		summarizeBy: sum
+		sourceColumn: Share_Middle_40_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Share_Bottom_50_pct
+		dataType: double
+		lineageTag: ca540608-3f86-4ae2-8b09-88462f4f3946
+		sourceLineageTag: Share_Bottom_50_pct
+		summarizeBy: sum
+		sourceColumn: Share_Bottom_50_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Income_Share = entity
+		mode: directLake
+		source
+			entityName: Income_Share
+			schemaName: dbo
+			expressionSource: 'DirectLake - Silver_LakeHouse'
+

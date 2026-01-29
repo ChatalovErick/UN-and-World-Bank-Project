@@ -1,0 +1,107 @@
+table Countries_Social_Barriers
+	lineageTag: 47dcb2c5-bbe2-4dbd-a2f2-1bfd70096d8f
+	sourceLineageTag: [dbo].[Countries_Social_Barriers]
+
+	column Country_Code_Iso3
+		dataType: string
+		lineageTag: f1933e09-3213-4d72-bd56-b97a2f55392b
+		sourceLineageTag: Country_Code_Iso3
+		summarizeBy: none
+		sourceColumn: Country_Code_Iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: bdffd8ad-9dc0-4c70-9e34-a67ef5b7692e
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Female_Account_Ownership
+		dataType: double
+		lineageTag: 94a603a8-5ee1-46d7-8aed-4e0021e211cb
+		sourceLineageTag: Female_Account_Ownership
+		summarizeBy: sum
+		sourceColumn: Female_Account_Ownership
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Internet_Access
+		dataType: double
+		lineageTag: 4111f676-941c-4b17-9f03-85c903057f84
+		sourceLineageTag: Internet_Access
+		summarizeBy: sum
+		sourceColumn: Internet_Access
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Literacy_Rate
+		dataType: double
+		lineageTag: 215623cc-29e4-4be8-a965-a250eb9faa9f
+		sourceLineageTag: Literacy_Rate
+		summarizeBy: sum
+		sourceColumn: Literacy_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column School_Attendance
+		dataType: double
+		lineageTag: b8a3a822-10ef-4d5b-867b-c06f09c00df9
+		sourceLineageTag: School_Attendance
+		summarizeBy: sum
+		sourceColumn: School_Attendance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Child_Mortality_Rate
+		dataType: double
+		lineageTag: fbde7a46-f819-478a-bbbf-32477b80af3e
+		sourceLineageTag: Child_Mortality_Rate
+		summarizeBy: sum
+		sourceColumn: Child_Mortality_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Life_Expectancy
+		dataType: double
+		lineageTag: ed8e8769-419b-4d4f-888a-92dbeab36c5d
+		sourceLineageTag: Life_Expectancy
+		summarizeBy: sum
+		sourceColumn: Life_Expectancy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MPI
+		dataType: double
+		lineageTag: cac8ba25-76be-4b1b-b928-3a9295e7694d
+		sourceLineageTag: MPI
+		summarizeBy: sum
+		sourceColumn: MPI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Countries_Social_Barriers = entity
+		mode: directLake
+		source
+			entityName: Countries_Social_Barriers
+			schemaName: dbo
+			expressionSource: 'DirectLake - Silver_LakeHouse'
+

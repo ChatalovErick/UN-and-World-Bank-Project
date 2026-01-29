@@ -1,0 +1,71 @@
+table Monthly_Employee_Earnings
+	lineageTag: 74dab09c-3404-4455-af49-701e570efd19
+	sourceLineageTag: [dbo].[Monthly_Employee_Earnings]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cf6a914-6238-4efb-a43c-5590dfa43555
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country_Code_Numeric
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d594328-170f-4852-8b43-6e8e7ed0e635
+		sourceLineageTag: Country_Code_Numeric
+		summarizeBy: none
+		sourceColumn: Country_Code_Numeric
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sex_Code
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c5009e6-988a-40e9-b385-a905bb98bb26
+		sourceLineageTag: Sex_Code
+		summarizeBy: none
+		sourceColumn: Sex_Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Label
+		dataType: string
+		lineageTag: 6b9cf8c5-bf3b-4823-9f36-2bdc3804acde
+		sourceLineageTag: Label
+		summarizeBy: none
+		sourceColumn: Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: be0ca7ff-1ff7-4e78-a5e9-8016e99a7b65
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: double
+		lineageTag: 6f8819f4-c76a-42fd-87d6-41f5a9e19944
+		sourceLineageTag: Value
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Monthly_Employee_Earnings = entity
+		mode: directLake
+		source
+			entityName: Monthly_Employee_Earnings
+			schemaName: dbo
+			expressionSource: 'DirectLake - Silver_LakeHouse'
+

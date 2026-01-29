@@ -1,0 +1,51 @@
+table HDI
+	lineageTag: 43ef0cfe-7d8d-470c-b74a-524ad85f9b2a
+	sourceLineageTag: [dbo].[HDI]
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: acc0f454-493c-483e-bc8e-db65cb87836f
+		sourceLineageTag: ID
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country_Code_Iso3
+		dataType: string
+		lineageTag: 33051156-e8fb-49c0-90e2-954466d28909
+		sourceLineageTag: Country_Code_Iso3
+		summarizeBy: none
+		sourceColumn: Country_Code_Iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 4068ce9f-1820-428b-ab61-d66a35d6e18b
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Human_Development_Index
+		dataType: double
+		lineageTag: f84378eb-3a2e-4284-b4e4-dcd354148cdf
+		sourceLineageTag: Human_Development_Index
+		summarizeBy: sum
+		sourceColumn: Human_Development_Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition HDI = entity
+		mode: directLake
+		source
+			entityName: HDI
+			schemaName: dbo
+			expressionSource: 'DirectLake - Silver_LakeHouse'
+

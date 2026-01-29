@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "World Bank Data Transformation Bronze to Silver (NB)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c9912f95-c382-bf18-416d-a781363b5c6a"
+  }
+}

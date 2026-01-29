@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - Silver_LakeHouse"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit"]
+
+ref table Economic_Indicators
+ref table Income_Share
+ref table HDI
+ref table Social_Barriers
+ref table Gini_Index
+ref table Monthly_Employee_Earnings
+ref table Gender
+ref table Dim_Date
+ref table Global_Social_Barriers
+ref table Countries_Social_Barriers
+ref table Geography
+ref table MPI
+

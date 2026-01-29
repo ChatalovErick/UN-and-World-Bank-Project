@@ -1,0 +1,63 @@
+table Economic_Indicators
+	lineageTag: 732fe075-558e-4231-a820-39f0b6567f50
+	sourceLineageTag: [dbo].[Economic_Indicators]
+
+	column Country_Code_Iso3
+		dataType: string
+		lineageTag: d74cd4c3-1f64-4032-9219-6761edc81a02
+		sourceLineageTag: Country_Code_Iso3
+		summarizeBy: none
+		sourceColumn: Country_Code_Iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: cbad477e-406c-4393-a10f-9475b3408873
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column GDP_Per_Capita
+		dataType: double
+		lineageTag: 694cee66-7f66-4736-a5fd-66e0a50fa52f
+		sourceLineageTag: GDP_Per_Capita
+		summarizeBy: sum
+		sourceColumn: GDP_Per_Capita
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Inflation_CPI_Pct
+		dataType: double
+		lineageTag: 046aff8b-1220-435b-bab6-83a018ca66a6
+		sourceLineageTag: Inflation_CPI_Pct
+		summarizeBy: sum
+		sourceColumn: Inflation_CPI_Pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GDP_Annual_Growth_Pct
+		dataType: double
+		lineageTag: 60462dfa-7965-48e0-b1fc-28ad524200f1
+		sourceLineageTag: GDP_Annual_Growth_Pct
+		summarizeBy: sum
+		sourceColumn: GDP_Annual_Growth_Pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Economic_Indicators = entity
+		mode: directLake
+		source
+			entityName: Economic_Indicators
+			schemaName: dbo
+			expressionSource: 'DirectLake - Silver_LakeHouse'
+

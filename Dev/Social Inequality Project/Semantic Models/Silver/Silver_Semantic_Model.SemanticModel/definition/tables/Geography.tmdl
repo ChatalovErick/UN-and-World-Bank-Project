@@ -1,0 +1,84 @@
+table Geography
+	lineageTag: e3bbb896-a5ff-4a7b-81d8-49cf5368f13c
+	sourceLineageTag: [dbo].[Geography]
+
+	column region_name
+		dataType: string
+		lineageTag: 9368b40b-5d07-49c4-9f58-d8079da4a518
+		sourceLineageTag: region_name
+		summarizeBy: none
+		sourceColumn: region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub-region_name
+		dataType: string
+		lineageTag: 393949b0-65f5-4167-b88b-c73a96debb19
+		sourceLineageTag: sub-region_name
+		summarizeBy: none
+		sourceColumn: sub-region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column intermediate_region_name
+		dataType: string
+		lineageTag: 07f732c7-8d01-4fc9-aa2e-3bae85f20215
+		sourceLineageTag: intermediate_region_name
+		summarizeBy: none
+		sourceColumn: intermediate_region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_or_area
+		dataType: string
+		lineageTag: 387693e8-9ca8-410b-91d5-77e02fb267e5
+		sourceLineageTag: country_or_area
+		summarizeBy: none
+		sourceColumn: country_or_area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country_Code_Numeric
+		dataType: int64
+		formatString: 0
+		lineageTag: d6ef7176-9419-4b22-b03d-7b218d45d332
+		sourceLineageTag: Country_Code_Numeric
+		summarizeBy: none
+		sourceColumn: Country_Code_Numeric
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country_Code_Iso2
+		dataType: string
+		lineageTag: b2e8b9cc-715a-428f-ae46-e3ebcbc04549
+		sourceLineageTag: Country_Code_Iso2
+		summarizeBy: none
+		sourceColumn: Country_Code_Iso2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country_Code_Iso3
+		dataType: string
+		lineageTag: c4b34310-0544-488e-ae63-bda5a0527716
+		sourceLineageTag: Country_Code_Iso3
+		summarizeBy: none
+		sourceColumn: Country_Code_Iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_region_name
+		dataType: string
+		lineageTag: 01d8678b-5cbb-4d0c-a291-c94a92298689
+		sourceLineageTag: sub_region_name
+		summarizeBy: none
+		sourceColumn: sub_region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Geography = entity
+		mode: directLake
+		source
+			entityName: Geography
+			schemaName: dbo
+			expressionSource: 'DirectLake - Silver_LakeHouse'
+

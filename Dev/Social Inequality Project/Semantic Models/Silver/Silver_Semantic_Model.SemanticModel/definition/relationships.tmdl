@@ -1,0 +1,76 @@
+relationship 0a3abc93-f984-be66-767b-e50609b6d12a
+	fromColumn: Global_Social_Barriers.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship c8a31fb5-73c2-5093-5753-25e86cd813f1
+	fromColumn: Income_Share.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship d33650db-6a77-ec7a-3e04-0ab5f16baa17
+	fromColumn: Monthly_Employee_Earnings.Country_Code_Numeric
+	toColumn: Geography.Country_Code_Numeric
+
+relationship 359ec0de-18f8-a46e-5749-527dfd5eed9e
+	fromColumn: HDI.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship 626977d6-e2b4-051b-de79-71bb300c2553
+	fromColumn: Gini_Index.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship f8725d51-9160-35da-3597-7e28358a96ff
+	fromColumn: Social_Barriers.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship ea5e4504-2622-cd41-6d36-7c3c7e9d2ed7
+	fromColumn: Economic_Indicators.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship 526d2be2-b2d2-8905-ddf0-cc822ff3b874
+	fromColumn: Countries_Social_Barriers.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship e95f643c-b8a1-b85e-3269-fc5cf314dae5
+	fromColumn: Monthly_Employee_Earnings.Sex_Code
+	toColumn: Gender.Sex_Code
+
+relationship b7b8be84-59d8-8d9e-cbf8-5040c2a118f3
+	fromColumn: Countries_Social_Barriers.Year
+	toColumn: Dim_Date.Year
+
+relationship f7e2b408-3e23-7556-f52f-c0199f8cd507
+	fromColumn: Economic_Indicators.Year
+	toColumn: Dim_Date.Year
+
+relationship 8b653f83-4eca-70a8-e923-a4a43a7cb154
+	fromColumn: HDI.Year
+	toColumn: Dim_Date.Year
+
+relationship e79908f0-03ab-97ea-7dc1-7303296749d7
+	fromColumn: Global_Social_Barriers.Year
+	toColumn: Dim_Date.Year
+
+relationship 4199e936-ac06-7560-5123-7ad6cba7e4bf
+	fromColumn: Gini_Index.Year
+	toColumn: Dim_Date.Year
+
+relationship e4401f3e-7337-77d4-ca4d-ffba84265c7d
+	fromColumn: Income_Share.Year
+	toColumn: Dim_Date.Year
+
+relationship f59e0d0b-b22c-3772-a3f5-da7658bdf1f5
+	fromColumn: Monthly_Employee_Earnings.Year
+	toColumn: Dim_Date.Year
+
+relationship 5b4e5394-5e6a-6c91-9d6c-73cc7a5fae5d
+	fromColumn: Social_Barriers.Year
+	toColumn: Dim_Date.Year
+
+relationship e87b5f09-46d4-41fd-e456-09ba0a0021ab
+	fromColumn: MPI.Country_Code_Iso3
+	toColumn: Geography.Country_Code_Iso3
+
+relationship 33492bba-46f9-d686-e544-49b751e3ce45
+	fromColumn: MPI.Year
+	toColumn: Dim_Date.Year
+
