@@ -30,11 +30,6 @@
       "queryName": "un_census attainment_15plus",
       "loadEnabled": false
     },
-    "un_census employed_population_by_status_in_employment_age_and_sex": {
-      "queryId": "db284062-9d67-431a-a75b-426902ab926f",
-      "queryName": "un_census employed_population_by_status_in_employment_age_and_sex",
-      "loadEnabled": false
-    },
     "un_census gini_index": {
       "queryId": "de599220-76ad-4645-9c40-a98f4e089676",
       "queryName": "un_census gini_index",
@@ -45,84 +40,43 @@
       "queryName": "un_census monthly_employee_earnings",
       "loadEnabled": false
     },
-    "un_census pop_age_sex_urban_rural": {
-      "queryId": "0015ba22-4317-435e-8f2e-2ff0035bcd4c",
-      "queryName": "un_census pop_age_sex_urban_rural",
-      "loadEnabled": false
-    },
-    "un_census school_attendance": {
-      "queryId": "e337d4a9-b519-4a56-a7af-dbfb44c090fa",
-      "queryName": "un_census school_attendance",
-      "loadEnabled": false
-    },
     "Reference_Database geography_dimension": {
       "queryId": "28ac0c91-ccc9-4e02-8be5-e66fa09cb47c",
       "queryName": "Reference_Database geography_dimension",
       "loadEnabled": false
     },
-    "other multidimensional_poverty_index_DataDestination": {
-      "queryId": "8212daa7-2131-4648-94d0-1dc89a435229",
-      "queryName": "other multidimensional_poverty_index_DataDestination",
-      "isHidden": true,
-      "loadEnabled": false
-    },
-    "Reference_Database area_dimension": {
-      "queryId": "10093a4f-d067-4d78-bc76-a84530346d30",
-      "queryName": "Reference_Database area_dimension",
-      "loadEnabled": false
-    },
-    "Reference_Database attainment_status_dimension": {
-      "queryId": "bc1310da-a004-48af-b08d-8b39d509c376",
-      "queryName": "Reference_Database attainment_status_dimension",
-      "loadEnabled": false
-    },
-    "Reference_Database employment_status_dimension": {
-      "queryId": "1f0e493a-f495-40f3-9de3-45b2f13cec9b",
-      "queryName": "Reference_Database employment_status_dimension",
-      "loadEnabled": false
-    },
-    "Reference_Database school_attendance_dimension": {
-      "queryId": "7f5ef519-0d84-4552-bba4-3271f8c3b88d",
-      "queryName": "Reference_Database school_attendance_dimension",
-      "loadEnabled": false
-    },
-    "Reference_Database gender_dimension": {
-      "queryId": "13bac343-cb4f-4fca-8e58-45a24dea405a",
-      "queryName": "Reference_Database gender_dimension",
-      "loadEnabled": false
-    },
-    "Reference_Database gender_dimension_DataDestination": {
-      "queryId": "8ee132ed-2c06-4ff1-ade8-d790a8c7bd06",
-      "queryName": "Reference_Database gender_dimension_DataDestination",
-      "isHidden": true,
-      "loadEnabled": false
-    },
     "Reference_Database geography_dimension_DataDestination": {
-      "queryId": "16406494-d273-4979-8a63-ea3fb48f4c69",
+      "queryId": "170d6ca6-58be-47e1-9764-755f8f848916",
       "queryName": "Reference_Database geography_dimension_DataDestination",
       "isHidden": true,
       "loadEnabled": false
     },
-    "un_census gini_index_DataDestination": {
-      "queryId": "73cc5d49-793b-466d-a341-e15675814dea",
-      "queryName": "un_census gini_index_DataDestination",
-      "isHidden": true,
-      "loadEnabled": false
-    },
     "other human_development_index_DataDestination": {
-      "queryId": "e3f7193f-4c1b-4870-9b07-32ac5599eeed",
+      "queryId": "9f3d612b-63b5-4fca-8245-3383e9803792",
       "queryName": "other human_development_index_DataDestination",
       "isHidden": true,
       "loadEnabled": false
     },
     "other income_share_top_10_DataDestination": {
-      "queryId": "f09697ec-baab-45f7-8d75-a2f9f94f4338",
+      "queryId": "32fb1234-6fe0-4117-9253-4956c7e809d6",
       "queryName": "other income_share_top_10_DataDestination",
       "isHidden": true,
       "loadEnabled": false
     },
+    "other multidimensional_poverty_index_DataDestination": {
+      "queryId": "fed019d5-f196-42c0-a405-5a5625bfc38a",
+      "queryName": "other multidimensional_poverty_index_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "un_census gini_index_DataDestination": {
+      "queryId": "b9a2fc1e-7c13-419e-b097-3502b6184bef",
+      "queryName": "un_census gini_index_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
     "un_census monthly_employee_earnings_DataDestination": {
-      "queryId": "f6ea519d-5c7f-4c36-95cd-2fd63ed53b55",
+      "queryId": "3ec89a6b-eff3-467f-9d23-9f31d61a5b21",
       "queryName": "un_census monthly_employee_earnings_DataDestination",
       "isHidden": true,
       "loadEnabled": false
@@ -132,7 +86,7 @@
     {
       "path": "Lakehouse",
       "kind": "Lakehouse",
-      "connectionId": "{\"ClusterId\":\"859c4984-5e67-4c66-ab4f-8c7ba10be907\",\"DatasourceId\":\"a4fff1ff-8d27-4fff-9474-a34d3bee5364\"}"
+      "connectionId": "{\"ClusterId\":\"afdcf0e0-9f10-4b55-b233-c2e1d86a634f\",\"DatasourceId\":\"21a4f923-b8b0-4fda-b676-fcdf7b9d556a\"}"
     }
   ]
 }

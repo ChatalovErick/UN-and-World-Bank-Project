@@ -8,15 +8,15 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "2040f8e7-720b-4901-acd5-9b9c700b12af",
+# META       "default_lakehouse": "83e7b47e-7c74-45e9-a96b-b66ae0bf51aa",
 # META       "default_lakehouse_name": "Bronze_LakeHouse",
-# META       "default_lakehouse_workspace_id": "d83c184e-82f0-4705-952c-0e29c5cb5274",
+# META       "default_lakehouse_workspace_id": "32338175-e0e6-4c7a-b3cf-225d1b46c410",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "2040f8e7-720b-4901-acd5-9b9c700b12af"
+# META           "id": "7a701f3d-b29e-4934-b58e-93cb5cd89308"
 # META         },
 # META         {
-# META           "id": "e003063b-04a8-42a0-8e85-b0243d356adb"
+# META           "id": "83e7b47e-7c74-45e9-a96b-b66ae0bf51aa"
 # META         }
 # META       ]
 # META     }
@@ -121,32 +121,37 @@ print(f"✅ Sucesso! A tabela '{table_name_silver}' foi criada com o MPI integra
 from pyspark.sql import functions as F
 
 # 1. Carregar as tabelas originais da Silver
+# Nota: Certifica-te que os caminhos dos nomes das tabelas estão corretos no teu novo Lakehouse
 df_fact = spark.read.table("silver_lakehouse.dbo.Social_Barriers")
 df_geo = spark.read.table("silver_lakehouse.dbo.geography")
 
 # --- PASSO A: ISOLAR AGREGADOS (WLD, SSA, HIC, etc.) ---
-# Usamos 'left_anti' para ficar apenas com o que NÃO existe na geografia
+# Usamos a condição explícita porque os nomes das colunas diferem entre as tabelas
 df_aggregates = df_fact.join(
     df_geo, 
-    df_fact.Country_Code_Iso3 == df_geo.Country_Code_Iso3, 
+    df_fact.Country_Code == df_geo.Country_Code_Iso3, 
     "left_anti"
 )
 
-# Gravar a tabela de Benchmarks/Agregados
+# Gravar a tabela de Benchmarks/Agregados (Regiões e Grupos Económicos)
 df_aggregates.write.format("delta") \
     .mode("overwrite") \
     .option("overwriteSchema", "true") \
     .saveAsTable("silver_lakehouse.dbo.Global_Social_Barriers")
 
 # --- PASSO B: ISOLAR PAÍSES REAIS ---
-# Usamos 'inner' join para garantir que só passam códigos que existem na Dim_Geography
+# 1. Fazemos o inner join para filtrar apenas o que é país real
+# 2. Renomeamos logo a coluna para manter o padrão ISO3 na Gold
 df_fact_countries = df_fact.join(
     df_geo.select("Country_Code_Iso3"), 
-    on="Country_Code_Iso3", 
+    df_fact.Country_Code == df_geo.Country_Code_Iso3, 
     how="inner"
-)
+).drop(df_geo.Country_Code_Iso3) # Removemos a duplicada do join
 
-# Gravar a tabela de Factos principal (a que vai para o mapa)
+# Padronizar o nome da coluna para a Gold
+df_fact_countries = df_fact_countries.withColumnRenamed("Country_Code", "Country_Code_Iso3")
+
+# Gravar a tabela de Factos principal (a que vais usar nos Mapas do Power BI)
 df_fact_countries.write.format("delta") \
     .mode("overwrite") \
     .option("overwriteSchema", "true") \
@@ -157,8 +162,6 @@ print("🚀 Processo de Separação Concluído com Sucesso!")
 print(f"📊 Registos Totais Originais: {df_fact.count()}")
 print(f"🌍 Registos na Countries (Países): {df_fact_countries.count()}")
 print(f"📈 Registos na Aggregates (Regiões/Mundo): {df_aggregates.count()}")
-
-
 
 # METADATA ********************
 
@@ -173,7 +176,7 @@ from pyspark.sql import functions as F
 
 # Carregar, filtrar e sobrescrever a tabela Silver
 df_silver_clean = spark.read.table("silver_lakehouse.dbo.Global_Social_Barriers") \
-    .filter(F.col("Country_Code_Iso3") != "XKX")
+    .filter(F.col("Country_Code") != "XKX")
 
 df_silver_clean.write.format("delta") \
     .mode("overwrite") \
@@ -198,20 +201,19 @@ df_econ_raw = spark.read.table("Bronze_LakeHouse.world_bank.Economic_Indicators"
 
 # 2. Seleção estratégica e limpeza
 df_econ_silver = df_econ_raw.select(
-    F.col("Country").alias("Country_Code_Iso3"),
-    F.col("Year").cast("int"),
+    F.col("economy").alias("Country_Code_Iso3"),
+    F.regexp_replace(F.col("time"), "YR", "").cast("int").alias("Year"),
     F.col("GDP_Per_Capita").cast("double"),
     F.col("Inflation_CPI_Pct").cast("double"),
-    F.col("GDP_Growth_Annual_Pct").alias("GDP_Annual_Growth_Pct") # Renomear para clareza
-).filter(F.col("Year") >= 2010) # Manter o teu filtro de tempo
+    F.col("GDP_Growth_Annual_Pct").cast("double").alias("GDP_Annual_Growth_Pct")
+).filter(F.col("Year") >= 2010)
 
-# 3. Gravar na Silver
 df_econ_silver.write.format("delta") \
     .mode("overwrite") \
     .option("overwriteSchema", "true") \
     .saveAsTable("Silver_LakeHouse.dbo.Economic_Indicators")
 
-print("Tabela Macro-Económica criada com PIB, Inflação e Crescimento!")
+print("🚀 Sucesso! Tabela Silver criada com as colunas renomeadas e limpas.")
 
 # METADATA ********************
 

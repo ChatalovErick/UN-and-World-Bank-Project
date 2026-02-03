@@ -22,39 +22,8 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "eb272947-624d-44da-930b-9f411e7371c0",
-          "workspaceId": "d83c184e-82f0-4705-952c-0e29c5cb5274"
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Dimension_Tables_from_the_UN_Census",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
-        "dependsOn": [
-          {
-            "activity": "UN Census_Create_Delta_Tables_Bronze_Layer",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          },
-          {
-            "activity": "Reference_Data_Create_Delta_Tables_Bronze_Layer",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "TridentNotebook",
-        "typeProperties": {
-          "notebookId": "b59f9bd5-d904-4ba9-aa34-b7d4274fc45a",
-          "workspaceId": "d83c184e-82f0-4705-952c-0e29c5cb5274"
+          "notebookId": "946eba42-535c-4e24-8306-d3080e44a83c",
+          "workspaceId": "32338175-e0e6-4c7a-b3cf-225d1b46c410"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -71,8 +40,8 @@
       {
         "type": "RefreshDataflow",
         "typeProperties": {
-          "dataflowId": "1163c7f9-ba75-468d-b7b6-2d37dd9197ee",
-          "workspaceId": "d83c184e-82f0-4705-952c-0e29c5cb5274",
+          "dataflowId": "248e70c0-fb20-44f5-9f0a-5b9553b08406",
+          "workspaceId": "32338175-e0e6-4c7a-b3cf-225d1b46c410",
           "notifyOption": "NoNotification",
           "dataflowType": "DataflowFabric"
         },
@@ -88,7 +57,13 @@
         "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
-            "activity": "Dimension_Tables_from_the_UN_Census",
+            "activity": "UN Census_Create_Delta_Tables_Bronze_Layer",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Reference_Data_Create_Delta_Tables_Bronze_Layer",
             "dependencyConditions": [
               "Succeeded"
             ]

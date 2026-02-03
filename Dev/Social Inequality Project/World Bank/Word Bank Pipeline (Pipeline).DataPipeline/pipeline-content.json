@@ -15,8 +15,6 @@
           "secureOutput": false
         },
         "name": "World_Bank_Data_Gathering",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": []
       },
       {

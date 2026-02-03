@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "2040f8e7-720b-4901-acd5-9b9c700b12af",
+# META       "default_lakehouse": "83e7b47e-7c74-45e9-a96b-b66ae0bf51aa",
 # META       "default_lakehouse_name": "Bronze_LakeHouse",
-# META       "default_lakehouse_workspace_id": "d83c184e-82f0-4705-952c-0e29c5cb5274",
+# META       "default_lakehouse_workspace_id": "32338175-e0e6-4c7a-b3cf-225d1b46c410",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "2040f8e7-720b-4901-acd5-9b9c700b12af"
+# META           "id": "83e7b47e-7c74-45e9-a96b-b66ae0bf51aa"
 # META         }
 # META       ]
 # META     }
@@ -57,62 +57,6 @@ df_clean.write.format("delta").mode("overwrite").saveAsTable(f"{schema}.{target_
 print(f"Merge complete! All files combined into table: {target_table_name}")
 
 
-## -------------------------------------------------------------------------------------
-## Population 5 to 24 years of age by school attendance, sex and urbanrural residence
-## -------------------------------------------------------------------------------------
-
-# Define the folder path
-folder_path = "Files/Education Statistics Database/Population 5 to 24 years of age by school attendance, sex and urbanrural residence/*.csv"
-
-# Load your data
-df_merged = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load(folder_path)
-
-# Automatically replace spaces and invalid characters in ALL column names
-new_columns = [col(c).alias(c.replace(' ', '_').replace(',', '').replace('(', '').replace(')', '')) for c in df_merged.columns]
-df_clean = df_merged.select(*new_columns)
-
-# 3. Save to a Delta Table
-target_table_name = "school_attendance"
-df_clean.write.format("delta").mode("overwrite").saveAsTable(f"{schema}.{target_table_name}")
-
-print(f"Merge complete! All files combined into table: {target_table_name}")
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# MARKDOWN ********************
-
-# ## (1.2) Demographic data
-
-# CELL ********************
-
-## -------------------------------------------------------------------------------------
-## Population by age, sex and urbanrural residence
-## -------------------------------------------------------------------------------------
-
-import pandas as pd # Just in case for reference, but we use Spark functions here
-from pyspark.sql.functions import col
-
-# Define the folder path
-folder_path = "Files/Demographic Statistics Database/Population by age, sex and urbanrural residence/*.csv"
-schema = "un_census"
-
-# Load your data
-df_merged = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load(folder_path)
-
-# Automatically replace spaces and invalid characters in ALL column names
-new_columns = [col(c).alias(c.replace(' ', '_').replace(',', '').replace('(', '').replace(')', '')) for c in df_merged.columns]
-df_clean = df_merged.select(*new_columns)
-
-# 3. Save to a Delta Table
-target_table_name = "pop_age_sex_urban_rural"
-df_clean.write.format("delta").mode("overwrite").saveAsTable(f"{schema}.{target_table_name}")
-
-print(f"Merge complete! All files combined into table: {target_table_name}")
 
 # METADATA ********************
 
@@ -133,7 +77,8 @@ print(f"Merge complete! All files combined into table: {target_table_name}")
 ## (3) Unemployment rate
 ## (4) Monthly employee earnings
 ## -------------------------------------------------------------------------------------
-
+import pandas as pd # Just in case for reference, but we use Spark functions here
+from pyspark.sql.functions import col
 import os
 import re
 
@@ -178,43 +123,6 @@ print("Success! All CSVs are now Delta tables with clean columns.")
 
 # MARKDOWN ********************
 
-# ## (1.4) Development Data (maybe)
-
-# CELL ********************
-
-## -------------------------------------------------------------------------------------
-## Total eletricity
-## -------------------------------------------------------------------------------------
-
-import pandas as pd # Just in case for reference, but we use Spark functions here
-from pyspark.sql.functions import col
-
-# Define the folder path
-folder_path = "Files/Development Statistics Database/Total Electricity/*.csv"
-schema = "un_census" 
-
-# Load your data
-df_merged = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load(folder_path)
-
-# Automatically replace spaces and invalid characters in ALL column names
-new_columns = [col(c).alias(c.replace(' ', '_').replace(',', '').replace('(', '').replace(')', '')) for c in df_merged.columns]
-df_clean = df_merged.select(*new_columns)
-
-# 3. Save to a Delta Table
-target_table_name = "global_total_eletricity"
-df_clean.write.format("delta").mode("overwrite").saveAsTable(f"{schema}.{target_table_name}")
-
-print(f"Merge complete! All files combined into table: {target_table_name}")
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# MARKDOWN ********************
-
 # # (2) Create Delta Tables for the Data from other sources for the Bronze Layer
 
 # MARKDOWN ********************
@@ -230,7 +138,8 @@ print(f"Merge complete! All files combined into table: {target_table_name}")
 ## (4) income share top 10%
 ## (5) multidimensional poverty index
 ## -------------------------------------------------------------------------------------
-
+import pandas as pd # Just in case for reference, but we use Spark functions here
+from pyspark.sql.functions import col
 import os
 import re
 
