@@ -1,0 +1,104 @@
+{
+  "chart": {
+    "title": "Distribution of income across richer and poorer groups (before tax)",
+    "subtitle": "The share of income received by different income groups. Income here is measured before taxes and benefits.",
+    "note": "Income is measured before payment of taxes and non-pension benefits, but after the payment of public and private pensions.",
+    "citation": "World Inequality Database (WID.world) (2025)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/income-share-distribution-before-tax-wid?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "World"
+    ]
+  },
+  "columns": {
+    "Share (top 1%, before tax)": {
+      "titleShort": "Richest 1%",
+      "titleLong": "Richest 1%",
+      "descriptionShort": "The share of income received by the richest 1% of the population. Income here is measured before taxes and benefits.",
+      "descriptionKey": [
+        "Income is _pre-tax_ — measured before taxes have been paid and most government benefits have been received. It is, however, measured after the operation of pension schemes, both private and public.",
+        "The data is estimated from a combination of household surveys, tax records and national accounts data. This combination can provide a more accurate picture of the incomes of the richest, which tend to be captured poorly in household survey data alone.",
+        "These underlying data sources are not always available. For some countries, observations are extrapolated from data relating to other years, or are sometimes modeled based on data observed in other countries. For more information on this methodology, see this related [technical note](https://wid.world/document/countries-with-regional-income-imputations-on-wid-world-world-inequality-lab-technical-note-2021-15/)."
+      ],
+      "descriptionProcessing": "We extract estimations of Gini, mean, percentile thresholds, averages, and shares via the [`wid` Stata command](https://github.com/thomasblanchet/wid-stata-tool). We calculate threshold and share ratios by dividing different thresholds and shares, respectively.\n\nInterpolations and extrapolations are excluded by using the option `exclude` in the Stata command.",
+      "shortUnit": "%",
+      "unit": "%",
+      "timespan": "1820-2023",
+      "type": "Numeric",
+      "owidVariableId": 1134006,
+      "shortName": "share_top_1__welfare_type_before_tax__extrapolated_no",
+      "lastUpdated": "2026-01-12",
+      "nextUpdate": "2027-01-12",
+      "citationShort": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data",
+      "citationLong": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data. “Richest 1% – WID” [dataset]. World Inequality Database (WID.world), “World Inequality Database (WID)” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1134006.metadata.json"
+    },
+    "Share (90-99th percentiles, before tax)": {
+      "titleShort": "Next 9%",
+      "titleLong": "Next 9%",
+      "descriptionShort": "The share of income received by the population between the 90th and 99th percentiles. Income here is measured before taxes and benefits.",
+      "descriptionKey": [
+        "Income is _pre-tax_ — measured before taxes have been paid and most government benefits have been received. It is, however, measured after the operation of pension schemes, both private and public.",
+        "The data is estimated from a combination of household surveys, tax records and national accounts data. This combination can provide a more accurate picture of the incomes of the richest, which tend to be captured poorly in household survey data alone.",
+        "These underlying data sources are not always available. For some countries, observations are extrapolated from data relating to other years, or are sometimes modeled based on data observed in other countries. For more information on this methodology, see this related [technical note](https://wid.world/document/countries-with-regional-income-imputations-on-wid-world-world-inequality-lab-technical-note-2021-15/)."
+      ],
+      "descriptionProcessing": "We extract estimations of Gini, mean, percentile thresholds, averages, and shares via the [`wid` Stata command](https://github.com/thomasblanchet/wid-stata-tool). We calculate threshold and share ratios by dividing different thresholds and shares, respectively.\n\nInterpolations and extrapolations are excluded by using the option `exclude` in the Stata command.",
+      "shortUnit": "%",
+      "unit": "%",
+      "timespan": "1820-2023",
+      "type": "Numeric",
+      "owidVariableId": 1134024,
+      "shortName": "share_top_90_99__welfare_type_before_tax__extrapolated_no",
+      "lastUpdated": "2026-01-12",
+      "nextUpdate": "2027-01-12",
+      "citationShort": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data",
+      "citationLong": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data. “Next 9% – WID” [dataset]. World Inequality Database (WID.world), “World Inequality Database (WID)” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1134024.metadata.json"
+    },
+    "Share (middle 40%, before tax)": {
+      "titleShort": "Middle 40%",
+      "titleLong": "Middle 40%",
+      "descriptionShort": "The share of income received by the middle 40% of the population. The middle 40% is the share of the population whose income lies between the poorest 50% and the richest 10%. Income here is measured before taxes and benefits.",
+      "descriptionKey": [
+        "Income is _pre-tax_ — measured before taxes have been paid and most government benefits have been received. It is, however, measured after the operation of pension schemes, both private and public.",
+        "The data is estimated from a combination of household surveys, tax records and national accounts data. This combination can provide a more accurate picture of the incomes of the richest, which tend to be captured poorly in household survey data alone.",
+        "These underlying data sources are not always available. For some countries, observations are extrapolated from data relating to other years, or are sometimes modeled based on data observed in other countries. For more information on this methodology, see this related [technical note](https://wid.world/document/countries-with-regional-income-imputations-on-wid-world-world-inequality-lab-technical-note-2021-15/)."
+      ],
+      "descriptionProcessing": "We extract estimations of Gini, mean, percentile thresholds, averages, and shares via the [`wid` Stata command](https://github.com/thomasblanchet/wid-stata-tool). We calculate threshold and share ratios by dividing different thresholds and shares, respectively.\n\nInterpolations and extrapolations are excluded by using the option `exclude` in the Stata command.",
+      "shortUnit": "%",
+      "unit": "%",
+      "timespan": "1820-2023",
+      "type": "Numeric",
+      "owidVariableId": 1133991,
+      "shortName": "share_middle_40__welfare_type_before_tax__extrapolated_no",
+      "lastUpdated": "2026-01-12",
+      "nextUpdate": "2027-01-12",
+      "citationShort": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data",
+      "citationLong": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data. “Middle 40% – WID” [dataset]. World Inequality Database (WID.world), “World Inequality Database (WID)” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1133991.metadata.json"
+    },
+    "Share (bottom 50%, before tax)": {
+      "titleShort": "Poorest 50%",
+      "titleLong": "Poorest 50%",
+      "descriptionShort": "The share of income received by the poorest 50% of the population. Income here is measured before taxes and benefits.",
+      "descriptionKey": [
+        "Income is _pre-tax_ — measured before taxes have been paid and most government benefits have been received. It is, however, measured after the operation of pension schemes, both private and public.",
+        "The data is estimated from a combination of household surveys, tax records and national accounts data. This combination can provide a more accurate picture of the incomes of the richest, which tend to be captured poorly in household survey data alone.",
+        "These underlying data sources are not always available. For some countries, observations are extrapolated from data relating to other years, or are sometimes modeled based on data observed in other countries. For more information on this methodology, see this related [technical note](https://wid.world/document/countries-with-regional-income-imputations-on-wid-world-world-inequality-lab-technical-note-2021-15/)."
+      ],
+      "descriptionProcessing": "We extract estimations of Gini, mean, percentile thresholds, averages, and shares via the [`wid` Stata command](https://github.com/thomasblanchet/wid-stata-tool). We calculate threshold and share ratios by dividing different thresholds and shares, respectively.\n\nInterpolations and extrapolations are excluded by using the option `exclude` in the Stata command.",
+      "shortUnit": "%",
+      "unit": "%",
+      "timespan": "1820-2023",
+      "type": "Numeric",
+      "owidVariableId": 1133984,
+      "shortName": "share_bottom_50__welfare_type_before_tax__extrapolated_no",
+      "lastUpdated": "2026-01-12",
+      "nextUpdate": "2027-01-12",
+      "citationShort": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data",
+      "citationLong": "World Inequality Database (WID.world) (2025) – with major processing by Our World in Data. “Poorest 50% – WID” [dataset]. World Inequality Database (WID.world), “World Inequality Database (WID)” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1133984.metadata.json"
+    }
+  },
+  "dateDownloaded": "2026-01-26",
+  "activeFilters": {}
+}
